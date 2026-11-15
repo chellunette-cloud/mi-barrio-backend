@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgis/postgis:16-3.4
+        image: postgis/postgis:16-3.7
         env:
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: mi_barrio
@@ -23,6 +23,7 @@ jobs:
     env:
       DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/mi_barrio
       SERVICE_TOKEN: ci-service-token-1234567890
+      NO_COLOR: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

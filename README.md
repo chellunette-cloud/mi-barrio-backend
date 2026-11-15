@@ -94,4 +94,4 @@ generados desde contratos (`internal-schema.ts`) se excluyen porque son artefact
 - Evidencia de Fase 1: `../docs/evidencias/fase-1/`.
 - D-7 (JWT + refresh + Argon2) queda pendiente para la fase de administración.
 - No se implementaron establecimientos, historia, rutas ni otros datos sin fuente verificada.
-- El workflow de CI usa PostGIS 16-3.4; el entorno local verificado usa PostGIS 3.7.0.
+- El workflow de CI usa PostGIS 16-3.7; el entorno local verificado usa PostGIS 3.7.0.
