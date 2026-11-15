@@ -56,10 +56,10 @@ El backend escucha en `HOST=0.0.0.0` para funcionar dentro de una red de servici
 ```bash
 docker network create mi-barrio-internal
 docker run --name mi-barrio-backend --network mi-barrio-internal \
-  -e DATABASE_URL=... -e SERVICE_TOKEN=... -p 3001:3001 mi-barrio-backend
+  -e DATABASE_URL=... -e SERVICE_TOKEN=... mi-barrio-backend
 ```
 
-No se debe publicar el puerto `3001` hacia Internet. La API debe usar
+No se usa `--publish`/`-p`: el puerto `3001` no se publica al host ni a Internet. La API debe usar
 `BACKEND_URL=http://mi-barrio-backend:3001`, no `localhost`, cuando ambos servicios están en
 contenedores separados. El token debe compartirse únicamente entre API y backend.
 
