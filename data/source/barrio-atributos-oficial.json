@@ -1,0 +1,36 @@
+{
+  "fuente": {
+    "codigo": "F-01",
+    "entidad": "SDP/UAECD",
+    "url": "https://datosabiertos.bogota.gov.co/dataset/barrio-legalizado-bogota-d-c",
+    "fechaConsulta": "2026-11-15",
+    "licencia": "CC BY 4.0"
+  },
+  "atributos": {
+    "OBJECTID": 191,
+    "CODIGO_ID": "LEG00645",
+    "NOMBRE": "URBANIZACION CIUDAD GRANADA",
+    "ESTADO": 1,
+    "LLAVE_PLANO": "080394B001",
+    "LLAVE_ACTUACION": null,
+    "ACTO_ADMINISTRATIVO": "RES",
+    "NUMERO_ACTO_ADMINISTRATIVO": "16",
+    "FECHA_ACTO_ADMINISTRATIVO": 916963200000,
+    "NUMERO_PLANO": "K56/4-00",
+    "AREA_TOTAL": 9.1,
+    "LOTES_TOTAL": 705,
+    "POBLACION_ESTIMADA": 3807,
+    "DENSIDAD": 77.47252747,
+    "AREAS_ZVC": 305,
+    "OBSERVACIONES": null,
+    "CODIGO_UPZ": 82,
+    "CODIGO_LOCALIDAD": "08",
+    "REGLAMENTACION": "3",
+    "ESCALA_CAPTURA": null,
+    "FECHA_CAPTURA": 1781481600000,
+    "RESPONSABLE": "554",
+    "CODIGO_UPL": "UPL14",
+    "Shape_Length": 1443.1732018582384,
+    "Shape_Area": 94627.10378324591
+  }
+}
