@@ -5,6 +5,7 @@ import type { GetBarrioGeometria } from '../../application/barrio/GetBarrioGeome
 import type { ListCategorias } from '../../application/places/ListCategorias.js';
 import type { ListLugares } from '../../application/places/ListLugares.js';
 import type { GetLugar } from '../../application/places/GetLugar.js';
+import type { ListVias } from '../../application/vias/ListVias.js';
 import { createInternalRouter } from './routes/internal/barrioRoutes.js';
 import { requestId } from './middleware/requestId.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
@@ -15,6 +16,7 @@ export interface AppDependencies {
   listCategorias: ListCategorias;
   listLugares: ListLugares;
   getLugar: GetLugar;
+  listVias: ListVias;
   serviceToken: string;
 }
 

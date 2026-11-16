@@ -29,6 +29,7 @@ const app = createApp({
   getBarrio: new GetBarrio(repository),
   getBarrioGeometria: new GetBarrioGeometria(repository),
   ...places,
+  listVias: { execute: async () => [] } as any,
   serviceToken: token
 });
 

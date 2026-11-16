@@ -126,6 +126,26 @@ paths:
           $ref: '#/components/responses/NoEncontrado'
         '500':
           $ref: '#/components/responses/ErrorInterno'
+  /internal/v1/vias:
+    get:
+      operationId: listViasInternas
+      parameters:
+        - name: highway
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Tramos viales
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Via'
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
 components:
   securitySchemes:
     ServiceToken:
@@ -320,6 +340,20 @@ components:
         fuentes:
           type: array
           items: { type: string, example: F-04 }
+    Via:
+      type: object
+      required: [id, highway, coordenadas, dentroBarrio, fuentePrincipal]
+      properties:
+        id: { type: integer, example: 1 }
+        nombre: { type: string, nullable: true, example: Calle 38 Sur }
+        highway: { type: string, example: residential }
+        coordenadas:
+          type: array
+          items:
+            type: array
+            items: { type: number }
+        dentroBarrio: { type: boolean, example: false }
+        fuentePrincipal: { type: string, example: F-16 }
     Error:
       type: object
       required: [error]

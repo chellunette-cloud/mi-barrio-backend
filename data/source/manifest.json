@@ -66,6 +66,39 @@
       "consultedAt": "2026-11-15",
       "license": "ODbL 1.0",
       "description": "25 establecimientos OSM con etiqueta shop en bbox ±0,006°"
+    },
+    {
+      "path": "salud-ciudad-granada.geojson",
+      "sha256": "3EE0A471B6EDE49C93D910DF12D38FECF236DC34614EDCF55F1982B5AA473B1B",
+      "bytes": 71525,
+      "sourceId": "F-05",
+      "entity": "Secretaría Distrital de Salud (SDS)",
+      "url": "https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/salud/instituciones/MapServer",
+      "consultedAt": "2026-11-15",
+      "license": "CC BY 4.0",
+      "description": "148 servicios de salud en bbox documentada"
+    },
+    {
+      "path": "transporte-ciudad-granada.geojson",
+      "sha256": "708429780751F7B3F91C1242C1DC7304457EBA671C0E201B599812D2DD3E8B92",
+      "bytes": 33934,
+      "sourceId": "F-15",
+      "entity": "Transmilenio / IDECA",
+      "url": "https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/movilidad/transportepublico/MapServer",
+      "consultedAt": "2026-11-15",
+      "license": "Términos IDECA",
+      "description": "126 elementos de infraestructura de transporte en bbox documentada"
+    },
+    {
+      "path": "vias-ciudad-granada.geojson",
+      "sha256": "E1E7452CE3ACEAFA7E48E743C94E876C79FDE85A3C8A815A2684A933F9B78EC4",
+      "bytes": 132901,
+      "sourceId": "F-16",
+      "entity": "OpenStreetMap contributors",
+      "url": "https://www.openstreetmap.org",
+      "consultedAt": "2026-11-15",
+      "license": "ODbL 1.0",
+      "description": "463 tramos viales residenciales y terciarios en bbox documentada"
     }
   ]
 }
