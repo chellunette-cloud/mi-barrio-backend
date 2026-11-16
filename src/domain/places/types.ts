@@ -33,4 +33,8 @@ export interface LugarRepository {
   listCategorias(): Promise<Categoria[]>;
   listLugares(filtro: LugarFiltro): Promise<Lugar[]>;
   findLugar(id: number): Promise<Lugar | null>;
+  createLugar(input: Omit<Lugar, 'id' | 'categoriaId' | 'categoriaCodigo' | 'dentroBarrio' | 'distanciaM' | 'fuentes'> & { categoriaCodigo: string }): Promise<Lugar>;
+  updateLugar(id: number, input: Partial<Omit<Lugar, 'id' | 'categoriaCodigo' | 'dentroBarrio' | 'distanciaM' | 'fuentes'>>): Promise<Lugar | null>;
+  deleteLugar(id: number): Promise<boolean>;
+  setPublished(id: number, publicado: boolean): Promise<Lugar | null>;
 }

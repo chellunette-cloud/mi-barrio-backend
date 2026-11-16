@@ -8,6 +8,13 @@ import { GetBarrioGeometria } from '../../src/application/barrio/GetBarrioGeomet
 import { ListCategorias } from '../../src/application/places/ListCategorias.js';
 import { ListLugares } from '../../src/application/places/ListLugares.js';
 import { GetLugar } from '../../src/application/places/GetLugar.js';
+import { StaticStatsRepository } from '../../src/infrastructure/stats/StaticStatsRepository.js';
+import { GetDemografia } from '../../src/application/stats/GetDemografia.js';
+import { GetSeguridad } from '../../src/application/stats/GetSeguridad.js';
+import { LoginAdmin } from '../../src/application/auth/LoginAdmin.js';
+import { RefreshSession } from '../../src/application/auth/RefreshSession.js';
+import { JwtService } from '../../src/infrastructure/auth/JwtService.js';
+import type { AdminRepository } from '../../src/domain/auth/types.js';
 import type { BarrioRepository } from '../../src/domain/barrio/types.js';
 import type { LugarRepository } from '../../src/domain/places/types.js';
 import { barrio, geometria } from '../fixtures.js';
@@ -19,8 +26,20 @@ const repository: BarrioRepository = {
 const lugarRepository: LugarRepository = {
   listCategorias: async () => [],
   listLugares: async () => [],
-  findLugar: async () => null
+  findLugar: async () => null,
+  createLugar: async () => ({}) as any,
+  updateLugar: async () => null,
+  deleteLugar: async () => false,
+  setPublished: async () => null
 };
+const statsRepository = new StaticStatsRepository();
+const adminRepository: AdminRepository = {
+  findUser: async () => null,
+  createUser: async () => ({ id: 1, username: 'admin', passwordHash: 'x', role: 'admin' }),
+  audit: async () => undefined,
+  listAudit: async () => []
+};
+const jwt = new JwtService('test-jwt-secret-1234567890', 'test-refresh-secret-1234567890');
 const places = {
   listCategorias: new ListCategorias(lugarRepository),
   listLugares: new ListLugares(lugarRepository),
@@ -31,6 +50,14 @@ const app = createApp({
   getBarrioGeometria: new GetBarrioGeometria(repository),
   ...places,
   listVias: { execute: async () => [] } as any,
+  getDemografia: new GetDemografia(statsRepository),
+  getSeguridad: new GetSeguridad(statsRepository),
+  login: new LoginAdmin(adminRepository, jwt),
+  refresh: new RefreshSession(adminRepository, jwt),
+  lugares: lugarRepository,
+  admin: adminRepository,
+  jwtSecret: 'test-jwt-secret-1234567890',
+  jwtRefreshSecret: 'test-refresh-secret-1234567890',
   serviceToken: 'contract-token-1234567890'
 });
 

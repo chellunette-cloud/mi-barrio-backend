@@ -9,10 +9,14 @@ import { GetLugar } from './application/places/GetLugar.js';
 import { ListVias } from './application/vias/ListVias.js';
 import { GetDemografia } from './application/stats/GetDemografia.js';
 import { GetSeguridad } from './application/stats/GetSeguridad.js';
+import { LoginAdmin } from './application/auth/LoginAdmin.js';
+import { RefreshSession } from './application/auth/RefreshSession.js';
 import { PostgresBarrioRepository } from './infrastructure/db/PostgresBarrioRepository.js';
 import { PostgresLugarRepository } from './infrastructure/db/PostgresLugarRepository.js';
 import { PostgresViaRepository } from './infrastructure/db/PostgresViaRepository.js';
+import { PostgresAdminRepository } from './infrastructure/db/PostgresAdminRepository.js';
 import { StaticStatsRepository } from './infrastructure/stats/StaticStatsRepository.js';
+import { JwtService } from './infrastructure/auth/JwtService.js';
 import { createApp } from './infrastructure/http/app.js';
 
 async function main(): Promise<void> {
@@ -22,6 +26,13 @@ async function main(): Promise<void> {
   const lugarRepository = new PostgresLugarRepository(pool);
   const viaRepository = new PostgresViaRepository(pool);
   const statsRepository = new StaticStatsRepository();
+  const adminRepository = new PostgresAdminRepository(pool);
+  const jwt = new JwtService(env.JWT_SECRET, env.JWT_REFRESH_SECRET);
+  if (env.ADMIN_USERNAME && env.ADMIN_PASSWORD) {
+    const argon2 = await import('argon2');
+    const hash = await argon2.hash(env.ADMIN_PASSWORD);
+    await adminRepository.createUser(env.ADMIN_USERNAME, hash, 'admin').catch(() => undefined);
+  }
   const app = createApp({
     getBarrio: new GetBarrio(repository),
     getBarrioGeometria: new GetBarrioGeometria(repository),
@@ -31,6 +42,12 @@ async function main(): Promise<void> {
     listVias: new ListVias(viaRepository),
     getDemografia: new GetDemografia(statsRepository),
     getSeguridad: new GetSeguridad(statsRepository),
+    login: new LoginAdmin(adminRepository, jwt),
+    refresh: new RefreshSession(adminRepository, jwt),
+    lugares: lugarRepository,
+    admin: adminRepository,
+    jwtSecret: env.JWT_SECRET,
+    jwtRefreshSecret: env.JWT_REFRESH_SECRET,
     serviceToken: env.SERVICE_TOKEN
   });
   const server = app.listen(env.PORT, env.HOST, () => {

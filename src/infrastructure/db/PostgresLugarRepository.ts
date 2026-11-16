@@ -28,4 +28,52 @@ export class PostgresLugarRepository implements LugarRepository {
     const row = result.rows[0];
     return row ? mapLugar(row) : null;
   }
+
+  async createLugar(input: any): Promise<Lugar> {
+    const categoria = await this.pool.query<{ id: number }>('SELECT id FROM categoria WHERE codigo = $1', [input.categoriaCodigo]);
+    const categoriaId = categoria.rows[0]?.id;
+    if (!categoriaId) throw new Error('Categoría inexistente');
+    const result = await this.pool.query<{ id: number }>(
+      `INSERT INTO lugar (categoria_id, nombre, descripcion, direccion, sector, tipo, lat, lon, geom, publicado, fuente_principal)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,ST_SetSRID(ST_MakePoint($9,$10),4326),$11,$12) RETURNING id`,
+      [categoriaId, input.nombre, input.descripcion ?? null, input.direccion ?? null, input.sector ?? null, input.tipo ?? null, input.lat, input.lon, input.lon, input.lat, input.publicado ?? true, input.fuentePrincipal ?? 'admin']
+    );
+    const id = result.rows[0]?.id;
+    if (!id) throw new Error('No se pudo crear el lugar');
+    const lugar = await this.findLugar(id);
+    if (!lugar) throw new Error('No se pudo leer el lugar');
+    return lugar;
+  }
+
+  async updateLugar(id: number, input: any): Promise<Lugar | null> {
+    const fields: string[] = [];
+    const values: unknown[] = [];
+    let index = 1;
+    for (const [key, column] of Object.entries({
+      nombre: 'nombre', descripcion: 'descripcion', direccion: 'direccion',
+      sector: 'sector', tipo: 'tipo', lat: 'lat', lon: 'lon', publicado: 'publicado'
+    })) {
+      if (input[key] !== undefined) {
+        fields.push(`${column} = $${index++}`);
+        values.push(input[key]);
+      }
+    }
+    if (fields.length === 0) return this.findLugar(id);
+    values.push(id);
+    await this.pool.query(`UPDATE lugar SET ${fields.join(', ')}, actualizado_en = now() WHERE id = $${index}`, values);
+    if (input.lat !== undefined || input.lon !== undefined) {
+      await this.pool.query(`UPDATE lugar SET geom = ST_SetSRID(ST_MakePoint(lon, lat), 4326) WHERE id = $1`, [id]);
+    }
+    return this.findLugar(id);
+  }
+
+  async deleteLugar(id: number): Promise<boolean> {
+    const result = await this.pool.query('DELETE FROM lugar WHERE id = $1', [id]);
+    return (result.rowCount ?? 0) > 0;
+  }
+
+  async setPublished(id: number, publicado: boolean): Promise<Lugar | null> {
+    await this.pool.query('UPDATE lugar SET publicado = $1, actualizado_en = now() WHERE id = $2', [publicado, id]);
+    return this.findLugar(id);
+  }
 }

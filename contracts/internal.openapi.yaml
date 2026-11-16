@@ -146,6 +146,144 @@ paths:
           $ref: '#/components/responses/NoAutorizado'
         '500':
           $ref: '#/components/responses/ErrorInterno'
+  /internal/v1/auth/login:
+    post:
+      operationId: loginAdminInterno
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Sesión administrativa
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminSession'
+        '400':
+          $ref: '#/components/responses/SolicitudInvalida'
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+  /internal/v1/auth/refresh:
+    post:
+      operationId: refreshAdminInterno
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+      responses:
+        '200':
+          description: Token renovado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RefreshResponse'
+        '400':
+          $ref: '#/components/responses/SolicitudInvalida'
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+  /internal/v1/admin/lugares:
+    get:
+      operationId: listAdminLugares
+      security:
+        - ServiceToken: []
+        - AdminToken: []
+      responses:
+        '200':
+          description: Lugares administrables
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lugar'
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+    post:
+      operationId: createAdminLugar
+      security:
+        - ServiceToken: []
+        - AdminToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LugarInput'
+      responses:
+        '201':
+          description: Lugar creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lugar'
+        '400':
+          $ref: '#/components/responses/SolicitudInvalida'
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+  /internal/v1/admin/lugares/{id}:
+    put:
+      operationId: updateAdminLugar
+      security:
+        - ServiceToken: []
+        - AdminToken: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer, minimum: 1 }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LugarInput'
+      responses:
+        '200':
+          description: Lugar actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lugar'
+        '400':
+          $ref: '#/components/responses/SolicitudInvalida'
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '404':
+          $ref: '#/components/responses/NoEncontrado'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+    delete:
+      operationId: deleteAdminLugar
+      security:
+        - ServiceToken: []
+        - AdminToken: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer, minimum: 1 }
+      responses:
+        '204':
+          description: Lugar eliminado
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '404':
+          $ref: '#/components/responses/NoEncontrado'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
   /internal/v1/estadisticas/demografia:
     get:
       operationId: getDemografiaInterna
@@ -180,6 +318,10 @@ components:
       type: apiKey
       in: header
       name: X-Service-Token
+    AdminToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   responses:
     NoAutorizado:
       description: Token de servicio ausente o inválido
@@ -452,6 +594,43 @@ components:
               nombre: { type: string }
               fuente: { type: string }
               escala: { type: string }
+    LoginRequest:
+      type: object
+      required: [username, password]
+      properties:
+        username: { type: string }
+        password: { type: string }
+    AdminSession:
+      type: object
+      required: [accessToken, refreshToken, expiresIn]
+      properties:
+        accessToken: { type: string }
+        refreshToken: { type: string }
+        expiresIn: { type: integer, example: 900 }
+    RefreshRequest:
+      type: object
+      required: [refreshToken]
+      properties:
+        refreshToken: { type: string }
+    RefreshResponse:
+      type: object
+      required: [accessToken, expiresIn]
+      properties:
+        accessToken: { type: string }
+        expiresIn: { type: integer, example: 900 }
+    LugarInput:
+      type: object
+      required: [categoriaId, nombre, lat, lon]
+      properties:
+        categoriaId: { type: integer }
+        nombre: { type: string }
+        descripcion: { type: string, nullable: true }
+        direccion: { type: string, nullable: true }
+        sector: { type: string, nullable: true }
+        tipo: { type: string, nullable: true }
+        lat: { type: number }
+        lon: { type: number }
+        publicado: { type: boolean }
     Error:
       type: object
       required: [error]
