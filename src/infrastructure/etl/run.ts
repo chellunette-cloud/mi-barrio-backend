@@ -3,6 +3,7 @@ import { Pool } from 'pg';
 import { databaseUrl } from '../../config/database.js';
 import { loadBarrio } from './loadBarrio.js';
 import { loadEstrato } from './loadEstrato.js';
+import { loadLugares } from './loadLugares.js';
 
 async function run(): Promise<void> {
   const pool = new Pool({ connectionString: databaseUrl });
@@ -11,8 +12,9 @@ async function run(): Promise<void> {
     await client.query('BEGIN');
     await loadBarrio(client);
     await loadEstrato(client);
+    await loadLugares(client);
     await client.query('COMMIT');
-    console.log('ETL Fase 1 completado en una transacción.');
+    console.log('ETL Fase 1 y 2 completado en una transacción.');
   } catch (error) {
     await client.query('ROLLBACK');
     throw error;

@@ -1,7 +1,10 @@
-import express, { type Express } from 'express';
+﻿import express, { type Express } from 'express';
 import helmet from 'helmet';
 import type { GetBarrio } from '../../application/barrio/GetBarrio.js';
 import type { GetBarrioGeometria } from '../../application/barrio/GetBarrioGeometria.js';
+import type { ListCategorias } from '../../application/places/ListCategorias.js';
+import type { ListLugares } from '../../application/places/ListLugares.js';
+import type { GetLugar } from '../../application/places/GetLugar.js';
 import { createInternalRouter } from './routes/internal/barrioRoutes.js';
 import { requestId } from './middleware/requestId.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
@@ -9,6 +12,9 @@ import { errorHandler, notFound } from './middleware/errorHandler.js';
 export interface AppDependencies {
   getBarrio: GetBarrio;
   getBarrioGeometria: GetBarrioGeometria;
+  listCategorias: ListCategorias;
+  listLugares: ListLugares;
+  getLugar: GetLugar;
   serviceToken: string;
 }
 

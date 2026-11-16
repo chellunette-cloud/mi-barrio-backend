@@ -34,3 +34,30 @@ export async function upsertFuente(client: PoolClient, fuente: FuenteMeta): Prom
   if (!id) throw new Error(`No se pudo registrar la fuente ${fuente.codigo}`);
   return id;
 }
+
+export const FUENTE_F04: FuenteMeta = {
+  codigo: 'F-04',
+  entidad: 'Secretaría de Educación (SED)',
+  url: 'https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/educacion/infraestructuraeducativa/MapServer/0',
+  fechaConsulta: '2026-11-15',
+  licencia: 'CC BY-SA 4.0',
+  descripcion: 'Infraestructura educativa; 28 sedes en la ventana documentada'
+};
+
+export const FUENTE_F06: FuenteMeta = {
+  codigo: 'F-06',
+  entidad: 'Secretaría Distrital de Planeación (SDP)',
+  url: 'https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/recreaciondeporte/parquesyescenarios/MapServer/1',
+  fechaConsulta: '2026-11-15',
+  licencia: 'CC BY 4.0',
+  descripcion: 'Parques y escenarios recreativos del POT'
+};
+
+export const FUENTE_F16: FuenteMeta = {
+  codigo: 'F-16',
+  entidad: 'OpenStreetMap contributors',
+  url: 'https://www.openstreetmap.org',
+  fechaConsulta: '2026-11-15',
+  licencia: 'ODbL 1.0',
+  descripcion: 'Establecimientos con etiqueta shop en la ventana documentada'
+};

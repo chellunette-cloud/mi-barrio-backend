@@ -33,6 +33,39 @@
       "consultedAt": "2026-11-15",
       "license": "CC BY 4.0",
       "description": "Atributos oficiales del registro LEG00645"
+    },
+    {
+      "path": "colegios-ciudad-granada.geojson",
+      "sha256": "3DCFBD4B77E0605EE2D04BCCDD224C04F375896C77E93BE652FA34BB26D9D960",
+      "bytes": 25398,
+      "sourceId": "F-04",
+      "entity": "Secretaría de Educación (SED)",
+      "url": "https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/educacion/infraestructuraeducativa/MapServer/0",
+      "consultedAt": "2026-11-15",
+      "license": "CC BY-SA 4.0",
+      "description": "28 sedes educativas en bbox ±0,006°"
+    },
+    {
+      "path": "parques-ciudad-granada.geojson",
+      "sha256": "C5A6E216F52E27E78FB9744069F81D2C9C82809C76DA23853587053D30570413",
+      "bytes": 453383,
+      "sourceId": "F-06",
+      "entity": "Secretaría Distrital de Planeación (SDP)",
+      "url": "https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/recreaciondeporte/parquesyescenarios/MapServer/1",
+      "consultedAt": "2026-11-15",
+      "license": "CC BY 4.0",
+      "description": "70 polígonos de parque en bbox ±0,01°"
+    },
+    {
+      "path": "comercio-osm-ciudad-granada.json",
+      "sha256": "AB55F3B8DC600803D6ED6A82AA09DD045F0CA4939BE6014FE702768A40FBDA74",
+      "bytes": 18196,
+      "sourceId": "F-16",
+      "entity": "OpenStreetMap contributors",
+      "url": "https://www.openstreetmap.org",
+      "consultedAt": "2026-11-15",
+      "license": "ODbL 1.0",
+      "description": "25 establecimientos OSM con etiqueta shop en bbox ±0,006°"
     }
   ]
 }

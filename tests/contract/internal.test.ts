@@ -5,16 +5,31 @@ import request from 'supertest';
 import { createApp } from '../../src/infrastructure/http/app.js';
 import { GetBarrio } from '../../src/application/barrio/GetBarrio.js';
 import { GetBarrioGeometria } from '../../src/application/barrio/GetBarrioGeometria.js';
+import { ListCategorias } from '../../src/application/places/ListCategorias.js';
+import { ListLugares } from '../../src/application/places/ListLugares.js';
+import { GetLugar } from '../../src/application/places/GetLugar.js';
 import type { BarrioRepository } from '../../src/domain/barrio/types.js';
+import type { LugarRepository } from '../../src/domain/places/types.js';
 import { barrio, geometria } from '../fixtures.js';
 
 const repository: BarrioRepository = {
   findBarrio: async () => barrio,
   findGeometria: async () => geometria
 };
+const lugarRepository: LugarRepository = {
+  listCategorias: async () => [],
+  listLugares: async () => [],
+  findLugar: async () => null
+};
+const places = {
+  listCategorias: new ListCategorias(lugarRepository),
+  listLugares: new ListLugares(lugarRepository),
+  getLugar: new GetLugar(lugarRepository)
+};
 const app = createApp({
   getBarrio: new GetBarrio(repository),
   getBarrioGeometria: new GetBarrioGeometria(repository),
+  ...places,
   serviceToken: 'contract-token-1234567890'
 });
 

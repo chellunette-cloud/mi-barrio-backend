@@ -1,0 +1,1030 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-15T23:55:00Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 522633782,
+  "lat": 4.6319118,
+  "lon": -74.1665833,
+  "tags": {
+    "addr:street": "Avenida Carrera 86",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 3097364091,
+  "lat": 4.6466310,
+  "lon": -74.1639967,
+  "tags": {
+    "name": "Cooratiendas",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 3419809529,
+  "lat": 4.6328089,
+  "lon": -74.1792257,
+  "tags": {
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 3419809532,
+  "lat": 4.6329578,
+  "lon": -74.1792904,
+  "tags": {
+    "shop": "laundry"
+  }
+},
+{
+  "type": "node",
+  "id": 3419809533,
+  "lat": 4.6330223,
+  "lon": -74.1793074,
+  "tags": {
+    "shop": "butcher"
+  }
+},
+{
+  "type": "node",
+  "id": 3419809535,
+  "lat": 4.6331144,
+  "lon": -74.1793567,
+  "tags": {
+    "shop": "electronics"
+  }
+},
+{
+  "type": "node",
+  "id": 3419809536,
+  "lat": 4.6331445,
+  "lon": -74.1793907,
+  "tags": {
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 3419809538,
+  "lat": 4.6332468,
+  "lon": -74.1794181,
+  "tags": {
+    "shop": "mobile_phone"
+  }
+},
+{
+  "type": "node",
+  "id": 3419809540,
+  "lat": 4.6333577,
+  "lon": -74.1794684,
+  "tags": {
+    "shop": "tyres"
+  }
+},
+{
+  "type": "node",
+  "id": 3419809542,
+  "lat": 4.6334540,
+  "lon": -74.1795071,
+  "tags": {
+    "shop": "bakery"
+  }
+},
+{
+  "type": "node",
+  "id": 3419809543,
+  "lat": 4.6335092,
+  "lon": -74.1795246,
+  "tags": {
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 4115214191,
+  "lat": 4.6357748,
+  "lon": -74.1619904,
+  "tags": {
+    "addr:street": "Avenida Carrera 86",
+    "name": "AKT",
+    "shop": "motorcycle",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4115214220,
+  "lat": 4.6355763,
+  "lon": -74.1621921,
+  "tags": {
+    "addr:street": "Avenida Carrera 86",
+    "name": "ARTEKO",
+    "shop": "kitchen",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4115214221,
+  "lat": 4.6355410,
+  "lon": -74.1622346,
+  "tags": {
+    "name": "STANFER",
+    "shop": "bicycle"
+  }
+},
+{
+  "type": "node",
+  "id": 4169651899,
+  "lat": 4.6321675,
+  "lon": -74.1687981,
+  "tags": {
+    "name": "oxigeno",
+    "opening_hours": "Mo-Su 07:00-20:00",
+    "shop": "bicycle"
+  }
+},
+{
+  "type": "node",
+  "id": 5080026024,
+  "lat": 4.6357988,
+  "lon": -74.1806901,
+  "tags": {
+    "name": "Distribuidora Necafar",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 5080057323,
+  "lat": 4.6355584,
+  "lon": -74.1666023,
+  "tags": {
+    "name": "Sup santamaria",
+    "name:es": "Sup santamaria",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 5141442852,
+  "lat": 4.6337110,
+  "lon": -74.1666656,
+  "tags": {
+    "name": "Colchoneria Mary's",
+    "shop": "bed"
+  }
+},
+{
+  "type": "node",
+  "id": 5141442857,
+  "lat": 4.6341724,
+  "lon": -74.1657924,
+  "tags": {
+    "name": "Distribuidora de Maquillaje BELLEZA TOTAL",
+    "shop": "cosmetics"
+  }
+},
+{
+  "type": "node",
+  "id": 5141569074,
+  "lat": 4.6342212,
+  "lon": -74.1663695,
+  "tags": {
+    "name": "Sala de Belleza Kbellos",
+    "shop": "beauty"
+  }
+},
+{
+  "type": "node",
+  "id": 5141569075,
+  "lat": 4.6344656,
+  "lon": -74.1659530,
+  "tags": {
+    "name": "Panadería SanLuis",
+    "shop": "bakery"
+  }
+},
+{
+  "type": "node",
+  "id": 5141569076,
+  "lat": 4.6343561,
+  "lon": -74.1659295,
+  "tags": {
+    "name": "Fine",
+    "shop": "laundry"
+  }
+},
+{
+  "type": "node",
+  "id": 5141622101,
+  "lat": 4.6353071,
+  "lon": -74.1795627,
+  "tags": {
+    "name": "Tienda Comunal",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 5141622610,
+  "lat": 4.6354895,
+  "lon": -74.1795266,
+  "tags": {
+    "shop": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5241832334,
+  "lat": 4.6408701,
+  "lon": -74.1652244,
+  "tags": {
+    "addr:street": "Avenida Carrera 89",
+    "name": "Colombo Francesa",
+    "shop": "bakery",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241832347,
+  "lat": 4.6386706,
+  "lon": -74.1659879,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Yanida",
+    "shop": "stationery",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241832348,
+  "lat": 4.6384967,
+  "lon": -74.1658613,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Mellos",
+    "shop": "clothes",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241901948,
+  "lat": 4.6373246,
+  "lon": -74.1649690,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Yiyolo",
+    "shop": "clothes",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241901955,
+  "lat": 4.6359212,
+  "lon": -74.1638919,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "XL",
+    "shop": "clothes",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241901958,
+  "lat": 4.6368535,
+  "lon": -74.1631315,
+  "tags": {
+    "addr:street": "Calle 35B Sur",
+    "name": "Hipercarnes del Sur",
+    "shop": "butcher",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241901963,
+  "lat": 4.6370757,
+  "lon": -74.1633698,
+  "tags": {
+    "addr:street": "Calle 35B Sur",
+    "name": "El Charaleño",
+    "shop": "bakery",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241901975,
+  "lat": 4.6374739,
+  "lon": -74.1618694,
+  "tags": {
+    "addr:street": "Carrera 86F",
+    "name": "Grecia",
+    "shop": "shoes",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241931224,
+  "lat": 4.6382019,
+  "lon": -74.1659192,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Buckingham",
+    "shop": "bakery",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241931225,
+  "lat": 4.6372620,
+  "lon": -74.1652323,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Ferrelectricos de la 38",
+    "shop": "electrical",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241931226,
+  "lat": 4.6368414,
+  "lon": -74.1648980,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Puntomercar",
+    "shop": "supermarket",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241931227,
+  "lat": 4.6365007,
+  "lon": -74.1646125,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Colfamiliar",
+    "shop": "supermarket",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5241931228,
+  "lat": 4.6364254,
+  "lon": -74.1645690,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Brando",
+    "shop": "shoes",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5243083398,
+  "lat": 4.6358355,
+  "lon": -74.1641240,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Opticas Visión 20/20",
+    "shop": "optician",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5243083403,
+  "lat": 4.6357112,
+  "lon": -74.1640127,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Cooratiendas",
+    "shop": "supermarket",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5243083404,
+  "lat": 4.6358529,
+  "lon": -74.1637552,
+  "tags": {
+    "addr:street": "Carrera 86F",
+    "name": "Pollos el Buen Gusto",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5243083405,
+  "lat": 4.6359672,
+  "lon": -74.1636551,
+  "tags": {
+    "addr:street": "Carrera 86F",
+    "name": "Zoe's",
+    "shop": "shoes",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5243083408,
+  "lat": 4.6364608,
+  "lon": -74.1629282,
+  "tags": {
+    "addr:street": "Carrera 86F",
+    "name": "Pasteleria Katherine",
+    "shop": "bakery",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5243083409,
+  "lat": 4.6365081,
+  "lon": -74.1628752,
+  "tags": {
+    "addr:street": "Carrera 86F",
+    "name": "Intimo's Dely",
+    "shop": "clothes",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5243083410,
+  "lat": 4.6367181,
+  "lon": -74.1628548,
+  "tags": {
+    "addr:street": "Calle 35B Sur",
+    "name": "El Malecom",
+    "shop": "alcohol",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5243083414,
+  "lat": 4.6374581,
+  "lon": -74.1621469,
+  "tags": {
+    "addr:street": "Carrera 86F",
+    "name": "Garnero El Baratillo",
+    "shop": "supermarket",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5251002496,
+  "lat": 4.6348534,
+  "lon": -74.1648678,
+  "tags": {
+    "addr:street": "Calle 38C Sur",
+    "name": "Thalia RJ",
+    "shop": "greengrocer",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5251002497,
+  "lat": 4.6350528,
+  "lon": -74.1646370,
+  "tags": {
+    "addr:street": "Calle 38C Sur",
+    "fixme": "name",
+    "shop": "butcher",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5251002498,
+  "lat": 4.6351769,
+  "lon": -74.1647295,
+  "tags": {
+    "addr:street": "Calle 38C Sur",
+    "name": "Disneylandia",
+    "shop": "bakery",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5251002503,
+  "lat": 4.6371341,
+  "lon": -74.1662321,
+  "tags": {
+    "addr:street": "Calle 38C Sur",
+    "name": "Diseña Tu Mundo",
+    "phone": "+57 315 7467895",
+    "shop": "furniture",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5251002504,
+  "lat": 4.6369664,
+  "lon": -74.1661025,
+  "tags": {
+    "addr:street": "Calle 38C Sur",
+    "name": "Ferretería y Vidriera MY",
+    "phone": "+57 322 4789310",
+    "shop": "hardware",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5251002508,
+  "lat": 4.6388399,
+  "lon": -74.1674811,
+  "tags": {
+    "addr:street": "Calle 38C Sur",
+    "name": "Surtifruver",
+    "shop": "greengrocer",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5251036314,
+  "lat": 4.6348515,
+  "lon": -74.1623255,
+  "tags": {
+    "addr:street": "Avenida Carrera 86",
+    "name": "Paga Todo",
+    "shop": "lottery",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5251182811,
+  "lat": 4.6348736,
+  "lon": -74.1630345,
+  "tags": {
+    "addr:street": "Avenida Carrera 86",
+    "name": "SurtiMax",
+    "shop": "supermarket",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5251182817,
+  "lat": 4.6350115,
+  "lon": -74.1628059,
+  "tags": {
+    "addr:street": "Avenida Carrera 86",
+    "name": "Electrika",
+    "shop": "motorcycle",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5253042439,
+  "lat": 4.6386178,
+  "lon": -74.1662130,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "Rochi",
+    "shop": "shoes",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5253042440,
+  "lat": 4.6380812,
+  "lon": -74.1658344,
+  "tags": {
+    "addr:street": "Calle 38 Sur",
+    "name": "DistriArango",
+    "shop": "hardware",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5253042443,
+  "lat": 4.6391264,
+  "lon": -74.1640872,
+  "tags": {
+    "addr:street": "Carrera 87I",
+    "name": "Shekinah",
+    "shop": "beauty",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5253042444,
+  "lat": 4.6390685,
+  "lon": -74.1641869,
+  "tags": {
+    "addr:street": "Carrera 87I",
+    "name": "Paga Todo",
+    "shop": "lottery",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5253042445,
+  "lat": 4.6390117,
+  "lon": -74.1642713,
+  "tags": {
+    "addr:street": "Carrera 87I",
+    "name": "Sofia",
+    "shop": "greengrocer",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 6338458287,
+  "lat": 4.6469650,
+  "lon": -74.1696600,
+  "tags": {
+    "name": "@UKASA",
+    "shop": "travel_agency"
+  }
+},
+{
+  "type": "node",
+  "id": 6520273359,
+  "lat": 4.6357387,
+  "lon": -74.1727520,
+  "tags": {
+    "addr:city": "Bogotá",
+    "addr:housenumber": "88G-23",
+    "addr:street": "Calle 42F Sur",
+    "name": "Peluqueria & Spa",
+    "shop": "hairdresser"
+  }
+},
+{
+  "type": "node",
+  "id": 6520317121,
+  "lat": 4.6355740,
+  "lon": -74.1726713,
+  "tags": {
+    "name": "Panadería",
+    "shop": "bakery"
+  }
+},
+{
+  "type": "node",
+  "id": 6520317363,
+  "lat": 4.6359671,
+  "lon": -74.1728726,
+  "tags": {
+    "addr:housenumber": "88H-27",
+    "name": "Carnes Frias",
+    "shop": "butcher"
+  }
+},
+{
+  "type": "node",
+  "id": 6520317364,
+  "lat": 4.6359318,
+  "lon": -74.1728356,
+  "tags": {
+    "addr:housenumber": "88H-23",
+    "name": "Fruver El Paisa",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 6520317366,
+  "lat": 4.6360746,
+  "lon": -74.1729034,
+  "tags": {
+    "addr:housenumber": "89-05",
+    "name": "Panaderia Tennesse",
+    "shop": "bakery"
+  }
+},
+{
+  "type": "node",
+  "id": 6520317367,
+  "lat": 4.6361160,
+  "lon": -74.1729450,
+  "tags": {
+    "addr:housenumber": "89-11",
+    "name": "Drogueria Hs",
+    "shop": "chemist"
+  }
+},
+{
+  "type": "node",
+  "id": 6520317368,
+  "lat": 4.6362036,
+  "lon": -74.1729943,
+  "tags": {
+    "addr:housenumber": "89-23",
+    "name": "FRUTERA",
+    "shop": "greengrocer"
+  }
+},
+{
+  "type": "node",
+  "id": 7606581382,
+  "lat": 4.6473401,
+  "lon": -74.1748238,
+  "tags": {
+    "name": "Ferretería y electricos el albañil",
+    "shop": "hardware"
+  }
+},
+{
+  "type": "node",
+  "id": 7606615470,
+  "lat": 4.6479629,
+  "lon": -74.1750084,
+  "tags": {
+    "name": "Supertienda mendoza",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 7606635797,
+  "lat": 4.6462969,
+  "lon": -74.1738338,
+  "tags": {
+    "name": "Autoservicio surtigangas",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 371839098,
+  "center": {
+    "lat": 4.6443198,
+    "lon": -74.1715243
+  },
+  "tags": {
+    "addr:street": "Calle 38C Sur # 93B 17 S",
+    "building": "yes",
+    "opening_hours": "09:00-22:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 371839115,
+  "center": {
+    "lat": 4.6448513,
+    "lon": -74.1716621
+  },
+  "tags": {
+    "addr:street": "Calle 38C Sur # 93D S",
+    "building": "yes",
+    "name": "MARILYNS",
+    "operator": "MARCEL FRANCE",
+    "shop": "beauty"
+  }
+},
+{
+  "type": "way",
+  "id": 371839116,
+  "center": {
+    "lat": 4.6448969,
+    "lon": -74.1715550
+  },
+  "tags": {
+    "addr:street": "Carrera 93D",
+    "building": "yes",
+    "name": "LA PAISA",
+    "shop": "greengrocer",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "way",
+  "id": 371839125,
+  "center": {
+    "lat": 4.6441454,
+    "lon": -74.1710944
+  },
+  "tags": {
+    "addr:street": "Calle 38C Sur 93A",
+    "building": "yes",
+    "name": "DULCERIA COLOMBINA",
+    "shop": "confectionery"
+  }
+},
+{
+  "type": "way",
+  "id": 371839127,
+  "center": {
+    "lat": 4.6439905,
+    "lon": -74.1712827
+  },
+  "tags": {
+    "addr:street": "Calle 38C Sur",
+    "building": "yes",
+    "name": "MINI MERCADO BELLA-VISTA",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "way",
+  "id": 371839132,
+  "center": {
+    "lat": 4.6443272,
+    "lon": -74.1705223
+  },
+  "tags": {
+    "building": "yes",
+    "name": "MONTA LLANTAS EL SANTANDERINO",
+    "shop": "tyres"
+  }
+},
+{
+  "type": "way",
+  "id": 371839135,
+  "center": {
+    "lat": 4.6449282,
+    "lon": -74.1703534
+  },
+  "tags": {
+    "building": "yes",
+    "name": "DON SALVADOR",
+    "operator": "INDEPENDIENTE",
+    "shop": "greengrocer"
+  }
+},
+{
+  "type": "way",
+  "id": 409625039,
+  "center": {
+    "lat": 4.6359896,
+    "lon": -74.1619472
+  },
+  "tags": {
+    "addr:street": "Avenida Carrera 86",
+    "building": "yes",
+    "name": "Madecentro",
+    "shop": "furniture",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "way",
+  "id": 529246231,
+  "center": {
+    "lat": 4.6349491,
+    "lon": -74.1806721
+  },
+  "tags": {
+    "building": "yes",
+    "shop": "car_repair"
+  }
+},
+{
+  "type": "way",
+  "id": 529246242,
+  "center": {
+    "lat": 4.6339234,
+    "lon": -74.1807082
+  },
+  "tags": {
+    "building": "yes",
+    "shop": "car_repair"
+  }
+},
+{
+  "type": "way",
+  "id": 543423981,
+  "center": {
+    "lat": 4.6319098,
+    "lon": -74.1665613
+  },
+  "tags": {
+    "addr:city": "Bogotá, D.C.",
+    "addr:street": "Avenida Carrera 86",
+    "building": "yes",
+    "name": "D1",
+    "shop": "supermarket",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "way",
+  "id": 543431316,
+  "center": {
+    "lat": 4.6378578,
+    "lon": -74.1657520
+  },
+  "tags": {
+    "addr:city": "Bogotá, D.C.",
+    "addr:street": "Calle 38 Sur",
+    "building": "yes",
+    "name": "MaxioFertas",
+    "shop": "supermarket",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "way",
+  "id": 814304003,
+  "center": {
+    "lat": 4.6467760,
+    "lon": -74.1741492
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Cooratiendas",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "way",
+  "id": 836475478,
+  "center": {
+    "lat": 4.6503406,
+    "lon": -74.1712646
+  },
+  "tags": {
+    "building": "yes",
+    "name": "surtimax",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "way",
+  "id": 852240223,
+  "center": {
+    "lat": 4.6494373,
+    "lon": -74.1759733
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Justo y Bueno",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "way",
+  "id": 1174165786,
+  "center": {
+    "lat": 4.6487091,
+    "lon": -74.1679008
+  },
+  "tags": {
+    "building": "yes",
+    "name": "Colsubsidio",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "way",
+  "id": 1441742900,
+  "center": {
+    "lat": 4.6372368,
+    "lon": -74.1690129
+  },
+  "tags": {
+    "addr:city": "Bogota",
+    "addr:postcode": "110881",
+    "addr:street": "Calle 40B Sur",
+    "building": "commercial",
+    "building:colour": "Amarillo",
+    "building:levels": "2",
+    "name": "Ferreteria Ramifer",
+    "shop": "hardware",
+    "smoking": "outside"
+  }
+}
+
+  ]
+}

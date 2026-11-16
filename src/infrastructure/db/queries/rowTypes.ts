@@ -52,3 +52,29 @@ export interface GeometriaRow {
   srid: number;
   actualizado_en: string;
 }
+
+export interface CategoriaRow {
+  id: number;
+  codigo: string;
+  nombre: string;
+  descripcion: string;
+  activa: boolean;
+}
+
+export interface LugarRow {
+  id: number;
+  categoria_id: number;
+  categoria_codigo: string;
+  nombre: string;
+  descripcion: string | null;
+  direccion: string | null;
+  sector: string | null;
+  tipo: string | null;
+  lat: number;
+  lon: number;
+  dentro_barrio: boolean;
+  distancia_m: number | null;
+  publicado: boolean;
+  fuente_principal: string;
+  fuentes: string | null;
+}
