@@ -1,21 +1,26 @@
 import type { PoolClient } from 'pg';
 import { upsertFuente } from './fuentes.js';
-import { FUENTE_F04, FUENTE_F06, FUENTE_F16 } from './fuentes.js';
+import { FUENTE_F04, FUENTE_F05, FUENTE_F06, FUENTE_F15, FUENTE_F16 } from './fuentes.js';
 import { loadSchoolSeeds } from './schoolMapper.js';
 import { loadParkSeeds } from './parkMapper.js';
 import { loadCommerceSeeds } from './commerceMapper.js';
-import type { PlaceSeed } from './schoolMapper.js';
+import { loadHealthSeeds } from './healthMapper.js';
+import { loadTransportSeeds } from './transportMapper.js';
 
 const CATEGORIAS = [
   ['educacion', 'Instituciones educativas', 'Colegios y sedes educativas del entorno'],
   ['parques', 'Parques y zonas verdes', 'Parques y zonas verdes cercanas'],
-  ['comercio', 'Establecimientos comerciales', 'Comercio con cobertura parcial']
+  ['comercio', 'Establecimientos comerciales', 'Comercio con cobertura parcial'],
+  ['salud', 'Servicios de salud', 'IPS, consultorios y farmacias cercanas'],
+  ['transporte', 'Transporte público', 'Paraderos, estaciones y portales']
 ] as const;
 
 export async function loadLugares(client: PoolClient): Promise<void> {
   const fuentes = {
     'F-04': await upsertFuente(client, FUENTE_F04),
+    'F-05': await upsertFuente(client, FUENTE_F05),
     'F-06': await upsertFuente(client, FUENTE_F06),
+    'F-15': await upsertFuente(client, FUENTE_F15),
     'F-16': await upsertFuente(client, FUENTE_F16)
   };
   const categoriaIds = new Map<string, number>();
@@ -33,10 +38,12 @@ export async function loadLugares(client: PoolClient): Promise<void> {
     categoriaIds.set(codigo, id);
   }
   await client.query('DELETE FROM lugar');
-  const seeds: PlaceSeed[] = [
+  const seeds = [
     ...(await loadSchoolSeeds()),
     ...(await loadParkSeeds()),
-    ...(await loadCommerceSeeds())
+    ...(await loadCommerceSeeds()),
+    ...(await loadHealthSeeds()),
+    ...(await loadTransportSeeds())
   ];
   for (const seed of seeds) {
     const categoriaId = categoriaIds.get(seed.categoria);

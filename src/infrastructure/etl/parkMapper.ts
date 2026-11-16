@@ -1,6 +1,12 @@
 import { readVerifiedJson } from './sources.js';
 import type { PlaceSeed } from './schoolMapper.js';
 
+function firstRing(geometry: any): number[][] {
+  if (geometry.type === 'MultiPolygon') return geometry.coordinates[0][0];
+  if (geometry.type === 'Polygon') return geometry.coordinates[0];
+  return geometry.coordinates;
+}
+
 function centroid(coords: number[][]): [number, number] {
   let latSum = 0;
   let lonSum = 0;
@@ -20,7 +26,7 @@ export async function loadParkSeeds(): Promise<PlaceSeed[]> {
     const nombre = (p.NOMBREPAR || '').trim();
     if (!nombre || seen.has(nombre)) continue;
     seen.add(nombre);
-    const [lat, lon] = centroid(f.geometry.coordinates[0]);
+    const [lat, lon] = centroid(firstRing(f.geometry));
     seeds.push({
       categoria: 'parques',
       nombre,

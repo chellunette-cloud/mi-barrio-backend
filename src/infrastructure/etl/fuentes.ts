@@ -61,3 +61,21 @@ export const FUENTE_F16: FuenteMeta = {
   licencia: 'ODbL 1.0',
   descripcion: 'Establecimientos con etiqueta shop en la ventana documentada'
 };
+
+export const FUENTE_F05: FuenteMeta = {
+  codigo: 'F-05',
+  entidad: 'Secretaría Distrital de Salud (SDS)',
+  url: 'https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/salud/instituciones/MapServer',
+  fechaConsulta: '2026-11-15',
+  licencia: 'CC BY 4.0',
+  descripcion: 'Instituciones prestadoras de salud, consultorios y farmacias'
+};
+
+export const FUENTE_F15: FuenteMeta = {
+  codigo: 'F-15',
+  entidad: 'Transmilenio / IDECA',
+  url: 'https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/movilidad/transportepublico/MapServer',
+  fechaConsulta: '2026-11-15',
+  licencia: 'Términos IDECA',
+  descripcion: 'Paraderos SITP, estaciones y portales de TransMilenio'
+};
