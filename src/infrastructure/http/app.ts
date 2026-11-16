@@ -6,6 +6,8 @@ import type { ListCategorias } from '../../application/places/ListCategorias.js'
 import type { ListLugares } from '../../application/places/ListLugares.js';
 import type { GetLugar } from '../../application/places/GetLugar.js';
 import type { ListVias } from '../../application/vias/ListVias.js';
+import type { GetDemografia } from '../../application/stats/GetDemografia.js';
+import type { GetSeguridad } from '../../application/stats/GetSeguridad.js';
 import { createInternalRouter } from './routes/internal/barrioRoutes.js';
 import { requestId } from './middleware/requestId.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
@@ -17,6 +19,8 @@ export interface AppDependencies {
   listLugares: ListLugares;
   getLugar: GetLugar;
   listVias: ListVias;
+  getDemografia: GetDemografia;
+  getSeguridad: GetSeguridad;
   serviceToken: string;
 }
 

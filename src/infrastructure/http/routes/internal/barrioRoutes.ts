@@ -5,10 +5,13 @@ import type { PlacesControllerDependencies } from '../../controllers/placesContr
 import type { ListVias } from '../../../../application/vias/ListVias.js';
 import { createPlacesRouter } from './placesRoutes.js';
 import { createViasRouter } from './viasRoutes.js';
+import { createStatsRouter } from './statsRoutes.js';
 import { requireServiceToken } from '../../middleware/serviceToken.js';
 
+import type { StatsControllerDependencies } from '../../controllers/statsController.js';
+
 export interface InternalRouterDependencies
-  extends BarrioControllerDependencies, PlacesControllerDependencies {
+  extends BarrioControllerDependencies, PlacesControllerDependencies, StatsControllerDependencies {
   serviceToken: string;
   listVias: ListVias;
 }
@@ -21,5 +24,6 @@ export function createInternalRouter(deps: InternalRouterDependencies): Router {
   router.get('/barrio/geometria', controller.geometria);
   router.use(createPlacesRouter(deps));
   router.use(createViasRouter(deps));
+  router.use(createStatsRouter(deps));
   return router;
 }

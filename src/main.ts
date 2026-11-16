@@ -7,9 +7,12 @@ import { ListCategorias } from './application/places/ListCategorias.js';
 import { ListLugares } from './application/places/ListLugares.js';
 import { GetLugar } from './application/places/GetLugar.js';
 import { ListVias } from './application/vias/ListVias.js';
+import { GetDemografia } from './application/stats/GetDemografia.js';
+import { GetSeguridad } from './application/stats/GetSeguridad.js';
 import { PostgresBarrioRepository } from './infrastructure/db/PostgresBarrioRepository.js';
 import { PostgresLugarRepository } from './infrastructure/db/PostgresLugarRepository.js';
 import { PostgresViaRepository } from './infrastructure/db/PostgresViaRepository.js';
+import { StaticStatsRepository } from './infrastructure/stats/StaticStatsRepository.js';
 import { createApp } from './infrastructure/http/app.js';
 
 async function main(): Promise<void> {
@@ -18,6 +21,7 @@ async function main(): Promise<void> {
   const repository = new PostgresBarrioRepository(pool);
   const lugarRepository = new PostgresLugarRepository(pool);
   const viaRepository = new PostgresViaRepository(pool);
+  const statsRepository = new StaticStatsRepository();
   const app = createApp({
     getBarrio: new GetBarrio(repository),
     getBarrioGeometria: new GetBarrioGeometria(repository),
@@ -25,6 +29,8 @@ async function main(): Promise<void> {
     listLugares: new ListLugares(lugarRepository),
     getLugar: new GetLugar(lugarRepository),
     listVias: new ListVias(viaRepository),
+    getDemografia: new GetDemografia(statsRepository),
+    getSeguridad: new GetSeguridad(statsRepository),
     serviceToken: env.SERVICE_TOKEN
   });
   const server = app.listen(env.PORT, env.HOST, () => {
