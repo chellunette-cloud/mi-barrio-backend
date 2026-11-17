@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "barrio-ciudad-granada.geojson",
-      "sha256": "1CDD6D0A63E3AD38393EB8FB37CBF7E2CAD1AD507D97CC2EDCBE2E8CCD5B0F6E",
-      "bytes": 20998,
+      "sha256": "6339B395069A18E71CA003E33D50AF2E1021CA0106C951EB18AC8C55DF000D74",
+      "bytes": 20725,
       "sourceId": "F-01",
       "entity": "SDP/UAECD",
       "url": "https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/ordenamientoterritorial/barrioslegalizados/MapServer/0",
@@ -14,8 +14,8 @@
     },
     {
       "path": "estrato-ciudad-granada.geojson",
-      "sha256": "175E3BA4BAD361863B1731669AD7A9E1EFD7F2B531FA950EE170D5D8619591E9",
-      "bytes": 98550,
+      "sha256": "DD60ED59E304E29AFB44C4886ADC8DFE3EBF1A5BB689C005AF137AB07610E994",
+      "bytes": 94460,
       "sourceId": "F-02",
       "entity": "SDP/UAECD",
       "url": "https://serviciosgis.catastrobogota.gov.co/arcgis/rest/services/ordenamientoterritorial/estratificacion/MapServer/1",
@@ -25,8 +25,8 @@
     },
     {
       "path": "barrio-atributos-oficial.json",
-      "sha256": "58EC23169DBA0C43EEEA8D0339C04DD07DE1B29C61D8AA9631087C31BF8FF229",
-      "bytes": 1034,
+      "sha256": "A504B1F04E312C69B8AEA081AEF652C8CD6B34331737B6ABD235251E828010F6",
+      "bytes": 999,
       "sourceId": "F-01",
       "entity": "SDP/UAECD",
       "url": "https://datosabiertos.bogota.gov.co/dataset/barrio-legalizado-bogota-d-c",
@@ -36,8 +36,8 @@
     },
     {
       "path": "poblacion-upz-082-2025.json",
-      "sha256": "C5A45313031499E9574AC5E1458EE49AEF84989CB909AA8A759209091F5E4B3B",
-      "bytes": 2688,
+      "sha256": "5A82B06B401CA564D9BB0255FF72A0AD910B3E68A29847A076D61C756980F03D",
+      "bytes": 2559,
       "sourceId": "F-03",
       "entity": "Secretaría Distrital de Planeación (SDP)",
       "url": "https://datosabiertos.bogota.gov.co/dataset/0f1fb76a-1595-43d5-9257-0abcc3db908a",
