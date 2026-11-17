@@ -49,8 +49,8 @@ export async function loadLugares(client: PoolClient): Promise<void> {
     const categoriaId = categoriaIds.get(seed.categoria);
     if (!categoriaId) throw new Error(`Categoría desconocida: ${seed.categoria}`);
     const lugar = await client.query<{ id: number }>(
-      `INSERT INTO lugar (categoria_id, nombre, descripcion, direccion, sector, tipo, lat, lon, geom, fuente_principal)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, ST_SetSRID(ST_MakePoint($9, $10), 4326), $11)
+      `INSERT INTO lugar (categoria_id, nombre, descripcion, direccion, sector, tipo, codigo, lat, lon, geom, fuente_principal)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, ST_SetSRID(ST_MakePoint($10, $11), 4326), $12)
        RETURNING id`,
       [
         categoriaId,
@@ -59,6 +59,7 @@ export async function loadLugares(client: PoolClient): Promise<void> {
         seed.direccion,
         seed.sector,
         seed.tipo,
+        seed.codigo ?? null,
         seed.lat,
         seed.lon,
         seed.lon,

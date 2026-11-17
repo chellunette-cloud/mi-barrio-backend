@@ -1,8 +1,8 @@
 # mi-barrio-backend
 
-Backend privado de **Mi Barrio – Ciudad Granada**. Pertenece a la Fase 1 y solo sirve los datos de
-HU-01 (ficha general) y HU-02 (polígono y centroide). No implementa HU-03 a HU-13, administración ni
-autenticación administrativa.
+Backend privado de **Mi Barrio – Ciudad Granada**. Implementa dominio, persistencia PostgreSQL/PostGIS,
+ETL, estadísticas y HTTP interno para el avance de Fase 11.2 (HU-01 a HU-13), incluida la
+autenticación administrativa y la administración de categorías y lugares.
 
 ## Arquitectura
 
@@ -17,7 +17,8 @@ autenticación administrativa.
 
 - Node.js 22 o superior (probado con Node 24).
 - PostgreSQL 16 + PostGIS (entorno verificado: PostgreSQL 16.13 / PostGIS 3.7.0).
-- Variables de entorno descritas en `.env.example`.
+- Variables de entorno descritas en `.env.example`. `JWT_SECRET` y `JWT_REFRESH_SECRET` son
+  obligatorias y deben tener al menos 16 caracteres.
 
 ## Puesta en marcha local
 
@@ -47,7 +48,8 @@ El ETL es transaccional y valida, antes de confirmar:
 | `GET` | `/internal/v1/barrio/geometria` | `X-Service-Token` |
 
 Los errores usan `{ "error": { "code", "message", "requestId" } }`. El backend no tiene CORS público
-y no debe publicarse en Internet.
+y no debe publicarse en Internet. `contracts/internal.openapi.yaml` contiene la lista completa de
+endpoints internos de lugares, estadísticas y administración.
 
 ## Red privada
 
@@ -91,7 +93,7 @@ generados desde contratos (`internal-schema.ts`) se excluyen porque son artefact
 
 ## Evidencia y limitaciones
 
-- Evidencia de Fase 1: `../docs/evidencias/fase-1/`.
-- D-7 (JWT + refresh + Argon2) queda pendiente para la fase de administración.
-- No se implementaron establecimientos, historia, rutas ni otros datos sin fuente verificada.
+- La documentación académica y las capturas de evidencia se conservan fuera de este repositorio.
+- El avance de Fase 11.2 está en el código y en las pruebas; las HU-03 a HU-06 siguen en desarrollo.
 - El workflow de CI usa PostGIS 16-3.7; el entorno local verificado usa PostGIS 3.7.0.
+- El despliegue no forma parte de este repositorio.

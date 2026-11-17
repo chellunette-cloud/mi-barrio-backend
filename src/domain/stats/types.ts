@@ -1,3 +1,10 @@
+export interface GrupoQuinquenal {
+  edad: string;
+  hombres: number;
+  mujeres: number;
+  total: number;
+}
+
 export interface Demografia {
   barrio: {
     nivel: 'barrio';
@@ -14,6 +21,7 @@ export interface Demografia {
     codigo: string;
     nombre: string;
     poblacion: { valor: number; anio: number; hombres: number; mujeres: number };
+    quinquenios: GrupoQuinquenal[];
     fuente: string;
   };
 }

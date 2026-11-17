@@ -11,7 +11,7 @@ import type { GetSeguridad } from '../../application/stats/GetSeguridad.js';
 import type { LoginAdmin } from '../../application/auth/LoginAdmin.js';
 import type { RefreshSession } from '../../application/auth/RefreshSession.js';
 import type { AdminRepository } from '../../domain/auth/types.js';
-import type { LugarRepository } from '../../domain/places/types.js';
+import type { CategoriaRepository, LugarRepository } from '../../domain/places/types.js';
 import { createInternalRouter } from './routes/internal/barrioRoutes.js';
 import { requestId } from './middleware/requestId.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
@@ -28,6 +28,7 @@ export interface AppDependencies {
   login: LoginAdmin;
   refresh: RefreshSession;
   lugares: LugarRepository;
+  categorias: CategoriaRepository;
   admin: AdminRepository;
   jwtSecret: string;
   jwtRefreshSecret: string;

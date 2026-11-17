@@ -9,6 +9,7 @@ export async function loadTransportSeeds(): Promise<PlaceSeed[]> {
     const p = f.properties;
     const nombre = (p.PSINOMBRE || p.ETRNOMBRE || '').trim();
     const direccion = (p.PSIDIRECCI || '').trim() || null;
+    const codigo = (p.PSICENEFA || '').trim() || null;
     const key = `${nombre}|${p.tipo_transporte}|${f.geometry.coordinates.join(',')}`;
     if (seen.has(key)) continue;
     seen.add(key);
@@ -19,6 +20,7 @@ export async function loadTransportSeeds(): Promise<PlaceSeed[]> {
       direccion,
       sector: null,
       tipo: p.tipo_transporte || 'paradero',
+      codigo,
       lat: f.geometry.coordinates[1],
       lon: f.geometry.coordinates[0],
       fuente: 'F-15'

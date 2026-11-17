@@ -3,12 +3,8 @@ import { z } from 'zod';
 import type { LugarRepository } from '../../../domain/places/types.js';
 import type { AdminRepository } from '../../../domain/auth/types.js';
 import { HttpError } from '../../../lib/httpError.js';
-
-export interface AdminLugaresDependencies {
-  lugares: LugarRepository;
-  admin: AdminRepository;
-}
-
+import { dentroArea, invalidData } from './adminValidation.js';
+export interface AdminLugaresDependencies { lugares: LugarRepository; admin: AdminRepository; }
 const placeSchema = z.object({
   categoriaId: z.number().int().positive(),
   nombre: z.string().trim().min(1).max(160),
@@ -27,11 +23,14 @@ export function createAdminLugaresController(deps: AdminLugaresDependencies) {
 
   return {
     list: async (_req: Request, res: Response, next: NextFunction): Promise<void> => {
-      try { res.json(await deps.lugares.listLugares({})); } catch (error) { next(error); }
+      try { res.json(await deps.lugares.listLugaresAdmin()); } catch (error) { next(error); }
     },
     create: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       try {
         const body = placeSchema.parse(req.body);
+        if (!dentroArea(body.lat, body.lon)) {
+          throw new HttpError(400, 'COORDENADAS_FUERA_AREA', 'Coordenadas fuera del área de influencia de Ciudad Granada');
+        }
         const input = {
           categoriaCodigo: await categoriaCodigo(deps.lugares, body.categoriaId),
           nombre: body.nombre,
@@ -39,6 +38,7 @@ export function createAdminLugaresController(deps: AdminLugaresDependencies) {
           direccion: body.direccion ?? null,
           sector: body.sector ?? null,
           tipo: body.tipo ?? null,
+          codigo: null,
           lat: body.lat,
           lon: body.lon,
           publicado: body.publicado ?? true,
@@ -48,28 +48,31 @@ export function createAdminLugaresController(deps: AdminLugaresDependencies) {
         await deps.admin.audit({ usuario: adminName(req), accion: 'crear', entidad: 'lugar', entidadId: created.id, antes: null, despues: JSON.stringify(created) });
         res.status(201).json(created);
       } catch (error) {
-        next(error instanceof z.ZodError ? new HttpError(400, 'DATOS_INVALIDOS', 'Datos inválidos') : error);
+        next(error instanceof z.ZodError ? invalidData(error) : error);
       }
     },
     update: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       try {
         const id = Number(req.params.id);
         if (!Number.isInteger(id) || id <= 0) throw new HttpError(400, 'ID_INVALIDO', 'Identificador inválido');
-        const before = await deps.lugares.findLugar(id);
+        const before = await deps.lugares.findLugarAdmin(id);
         if (!before) throw new HttpError(404, 'LUGAR_NO_ENCONTRADO', 'El lugar no existe');
         const body = placeSchema.partial().parse(req.body);
+        if (!dentroArea(body.lat ?? before.lat, body.lon ?? before.lon)) {
+          throw new HttpError(400, 'COORDENADAS_FUERA_AREA', 'Coordenadas fuera del área de influencia de Ciudad Granada');
+        }
         const updated = await deps.lugares.updateLugar(id, body);
         await deps.admin.audit({ usuario: adminName(req), accion: 'editar', entidad: 'lugar', entidadId: id, antes: JSON.stringify(before), despues: JSON.stringify(updated) });
         res.json(updated);
       } catch (error) {
-        next(error instanceof z.ZodError ? new HttpError(400, 'DATOS_INVALIDOS', 'Datos inválidos') : error);
+        next(error instanceof z.ZodError ? invalidData(error) : error);
       }
     },
     remove: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       try {
         const id = Number(req.params.id);
         if (!Number.isInteger(id) || id <= 0) throw new HttpError(400, 'ID_INVALIDO', 'Identificador inválido');
-        const before = await deps.lugares.findLugar(id);
+        const before = await deps.lugares.findLugarAdmin(id);
         if (!before) throw new HttpError(404, 'LUGAR_NO_ENCONTRADO', 'El lugar no existe');
         const deleted = await deps.lugares.deleteLugar(id);
         if (!deleted) throw new HttpError(404, 'LUGAR_NO_ENCONTRADO', 'El lugar no existe');

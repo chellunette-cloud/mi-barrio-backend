@@ -7,6 +7,7 @@ export interface PlaceSeed {
   direccion: string | null;
   sector: string | null;
   tipo: string | null;
+  codigo?: string | null;
   lat: number;
   lon: number;
   fuente: string;

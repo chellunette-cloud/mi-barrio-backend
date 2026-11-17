@@ -1,0 +1,129 @@
+{
+  "nivel": "upz",
+  "codigo": "082",
+  "nombre": "PATIO BONITO",
+  "localidad": "Kennedy",
+  "anio": 2025,
+  "area": "Cabecera Municipal",
+  "poblacion": {
+    "valor": 133130,
+    "hombres": 66175,
+    "mujeres": 66955
+  },
+  "grupos": [
+    {
+      "edad": "0-4",
+      "hombres": 5006,
+      "mujeres": 4900,
+      "total": 9906
+    },
+    {
+      "edad": "5-9",
+      "hombres": 4915,
+      "mujeres": 4780,
+      "total": 9695
+    },
+    {
+      "edad": "10-14",
+      "hombres": 4496,
+      "mujeres": 4551,
+      "total": 9047
+    },
+    {
+      "edad": "15-19",
+      "hombres": 4531,
+      "mujeres": 4656,
+      "total": 9187
+    },
+    {
+      "edad": "20-24",
+      "hombres": 5982,
+      "mujeres": 5647,
+      "total": 11629
+    },
+    {
+      "edad": "25-29",
+      "hombres": 7775,
+      "mujeres": 7224,
+      "total": 14999
+    },
+    {
+      "edad": "30-34",
+      "hombres": 7106,
+      "mujeres": 6364,
+      "total": 13470
+    },
+    {
+      "edad": "35-39",
+      "hombres": 5174,
+      "mujeres": 4832,
+      "total": 10006
+    },
+    {
+      "edad": "40-44",
+      "hombres": 4310,
+      "mujeres": 4598,
+      "total": 8908
+    },
+    {
+      "edad": "45-49",
+      "hombres": 3973,
+      "mujeres": 4359,
+      "total": 8332
+    },
+    {
+      "edad": "50-54",
+      "hombres": 3227,
+      "mujeres": 3520,
+      "total": 6747
+    },
+    {
+      "edad": "55-59",
+      "hombres": 2892,
+      "mujeres": 3176,
+      "total": 6068
+    },
+    {
+      "edad": "60-64",
+      "hombres": 2449,
+      "mujeres": 2728,
+      "total": 5177
+    },
+    {
+      "edad": "65-69",
+      "hombres": 1811,
+      "mujeres": 2208,
+      "total": 4019
+    },
+    {
+      "edad": "70-74",
+      "hombres": 1270,
+      "mujeres": 1511,
+      "total": 2781
+    },
+    {
+      "edad": "75-79",
+      "hombres": 701,
+      "mujeres": 936,
+      "total": 1637
+    },
+    {
+      "edad": "80-84",
+      "hombres": 335,
+      "mujeres": 523,
+      "total": 858
+    },
+    {
+      "edad": "85 y más",
+      "hombres": 222,
+      "mujeres": 442,
+      "total": 664
+    }
+  ],
+  "fuente": "F-03",
+  "url": "https://datosabiertos.bogota.gov.co/dataset/0f1fb76a-1595-43d5-9257-0abcc3db908a/resource/96583ea9-9c0b-40c3-9797-156d173eb734/download/202503_upz_proyeccion_retroproyeccion_poblacion_2005_2035.ods",
+  "datasetUrl": "https://datosabiertos.bogota.gov.co/dataset/0f1fb76a-1595-43d5-9257-0abcc3db908a",
+  "consultedAt": "2026-11-15",
+  "licencia": "CC BY 4.0",
+  "archivoOrigenSha256": "A7AD5AAD19081AF63D85BFC5FF80DB5D066030D2A06E6A88DF71BA9EB2DBE4EB"
+}

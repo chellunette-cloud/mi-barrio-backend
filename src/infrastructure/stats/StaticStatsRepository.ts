@@ -1,7 +1,9 @@
 import type { Demografia, Seguridad } from '../../domain/stats/types.js';
+import { loadPoblacionUpz } from './poblacionUpz.js';
 
 export class StaticStatsRepository {
   demografia(): Demografia {
+    const upz = loadPoblacionUpz();
     return {
       barrio: {
         nivel: 'barrio',
@@ -17,7 +19,8 @@ export class StaticStatsRepository {
         nivel: 'upz',
         codigo: '82',
         nombre: 'Patio Bonito',
-        poblacion: { valor: 133130, anio: 2025, hombres: 66175, mujeres: 66955 },
+        poblacion: { valor: upz.poblacion.valor, anio: upz.anio, hombres: upz.poblacion.hombres, mujeres: upz.poblacion.mujeres },
+        quinquenios: upz.grupos,
         fuente: 'F-03'
       }
     };

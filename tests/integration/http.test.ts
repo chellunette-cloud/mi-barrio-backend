@@ -25,7 +25,9 @@ const repository: BarrioRepository = {
 const lugarRepository: LugarRepository = {
   listCategorias: async () => [],
   listLugares: async () => [],
+  listLugaresAdmin: async () => [],
   findLugar: async () => null,
+  findLugarAdmin: async () => null,
   createLugar: async () => ({}) as any,
   updateLugar: async () => null,
   deleteLugar: async () => false,
@@ -54,6 +56,13 @@ const app = createApp({
   login: new LoginAdmin(adminRepository, jwt),
   refresh: new RefreshSession(adminRepository, jwt),
   lugares: lugarRepository,
+  categorias: {
+    listCategoriasAdmin: async () => [],
+    findCategoria: async () => null,
+    createCategoria: async () => ({}) as any,
+    updateCategoria: async () => null,
+    deleteCategoria: async () => ({ status: 'not_found', lugares: 0 })
+  },
   admin: adminRepository,
   jwtSecret: 'test-jwt-secret-1234567890',
   jwtRefreshSecret: 'test-refresh-secret-1234567890',

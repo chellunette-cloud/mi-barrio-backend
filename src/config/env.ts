@@ -5,8 +5,8 @@ const envSchema = z.object({
   HOST: z.string().min(1).default('0.0.0.0'),
   DATABASE_URL: z.string().min(1),
   SERVICE_TOKEN: z.string().min(16),
-  JWT_SECRET: z.string().min(16).default('dev-jwt-secret-change-in-production'),
-  JWT_REFRESH_SECRET: z.string().min(16).default('dev-refresh-secret-change-in-production'),
+  JWT_SECRET: z.string().min(16),
+  JWT_REFRESH_SECRET: z.string().min(16),
   ADMIN_USERNAME: z.string().min(1).optional(),
   ADMIN_PASSWORD: z.string().min(8).optional(),
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development')

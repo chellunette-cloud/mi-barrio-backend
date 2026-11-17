@@ -7,7 +7,7 @@ export const CATEGORIAS_SQL = `
 
 export const LUGARES_SQL = `
   SELECT l.id, l.categoria_id, c.codigo AS categoria_codigo, l.nombre,
-         l.descripcion, l.direccion, l.sector, l.tipo, l.lat, l.lon,
+         l.descripcion, l.direccion, l.sector, l.tipo, l.codigo, l.lat, l.lon,
          l.dentro_barrio, l.distancia_m, l.publicado, l.fuente_principal,
          COALESCE(string_agg(f.codigo, ','), '') AS fuentes
   FROM lugar l
@@ -24,7 +24,7 @@ export const LUGARES_SQL = `
 
 export const LUGAR_SQL = `
   SELECT l.id, l.categoria_id, c.codigo AS categoria_codigo, l.nombre,
-         l.descripcion, l.direccion, l.sector, l.tipo, l.lat, l.lon,
+         l.descripcion, l.direccion, l.sector, l.tipo, l.codigo, l.lat, l.lon,
          l.dentro_barrio, l.distancia_m, l.publicado, l.fuente_principal,
          COALESCE(string_agg(f.codigo, ','), '') AS fuentes
   FROM lugar l

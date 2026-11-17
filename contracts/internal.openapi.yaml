@@ -284,6 +284,112 @@ paths:
           $ref: '#/components/responses/NoEncontrado'
         '500':
           $ref: '#/components/responses/ErrorInterno'
+  /internal/v1/admin/categorias:
+    get:
+      operationId: listAdminCategorias
+      security:
+        - ServiceToken: []
+        - AdminToken: []
+      responses:
+        '200':
+          description: Categorías administrables, incluidas las inactivas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Categoria'
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+    post:
+      operationId: createAdminCategoria
+      security:
+        - ServiceToken: []
+        - AdminToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoriaInput'
+      responses:
+        '201':
+          description: Categoría creada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        '400':
+          $ref: '#/components/responses/SolicitudInvalida'
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '409':
+          $ref: '#/components/responses/Conflicto'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+  /internal/v1/admin/categorias/{id}:
+    put:
+      operationId: updateAdminCategoria
+      security:
+        - ServiceToken: []
+        - AdminToken: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer, minimum: 1 }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoriaInput'
+      responses:
+        '200':
+          description: Categoría actualizada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        '400':
+          $ref: '#/components/responses/SolicitudInvalida'
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '404':
+          $ref: '#/components/responses/NoEncontrado'
+        '409':
+          $ref: '#/components/responses/Conflicto'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
+    delete:
+      operationId: deleteAdminCategoria
+      security:
+        - ServiceToken: []
+        - AdminToken: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: integer, minimum: 1 }
+        - name: reasignarA
+          in: query
+          description: Categoría destino para reasignar los lugares antes de eliminar
+          schema: { type: integer, minimum: 1 }
+      responses:
+        '204':
+          description: Categoría eliminada
+        '400':
+          $ref: '#/components/responses/SolicitudInvalida'
+        '401':
+          $ref: '#/components/responses/NoAutorizado'
+        '404':
+          $ref: '#/components/responses/NoEncontrado'
+        '409':
+          $ref: '#/components/responses/Conflicto'
+        '500':
+          $ref: '#/components/responses/ErrorInterno'
   /internal/v1/estadisticas/demografia:
     get:
       operationId: getDemografiaInterna
@@ -335,6 +441,11 @@ components:
           schema: { $ref: '#/components/schemas/Error' }
     SolicitudInvalida:
       description: Parámetros inválidos
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    Conflicto:
+      description: La operación entra en conflicto con datos existentes
       content:
         application/json:
           schema: { $ref: '#/components/schemas/Error' }
@@ -489,9 +600,21 @@ components:
         nombre: { type: string, example: Instituciones educativas }
         descripcion: { type: string }
         activa: { type: boolean, example: true }
+    CategoriaInput:
+      type: object
+      required: [codigo, nombre, descripcion]
+      properties:
+        codigo:
+          type: string
+          pattern: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
+          minLength: 2
+          maxLength: 40
+        nombre: { type: string, minLength: 1, maxLength: 120 }
+        descripcion: { type: string, minLength: 1, maxLength: 300 }
+        activa: { type: boolean, default: true }
     Lugar:
       type: object
-      required: [id, categoriaId, categoriaCodigo, nombre, lat, lon, dentroBarrio, publicado, fuentePrincipal, fuentes]
+      required: [id, categoriaId, categoriaCodigo, nombre, codigo, lat, lon, dentroBarrio, publicado, fuentePrincipal, fuentes]
       properties:
         id: { type: integer, example: 1 }
         categoriaId: { type: integer, example: 1 }
@@ -499,8 +622,9 @@ components:
         nombre: { type: string, example: COLEGIO ALEJANDRO MAGNO }
         descripcion: { type: string, nullable: true }
         direccion: { type: string, nullable: true }
-        sector: { type: string, nullable: true, enum: [oficial, privado, 'no informado'] }
+        sector: { type: string, nullable: true, enum: [oficial, privado, 'no informado', null] }
         tipo: { type: string, nullable: true, example: colegio }
+        codigo: { type: string, nullable: true, example: '029A08', description: Código externo verificable; en paraderos corresponde al código SITP }
         lat: { type: number, example: 4.6408567 }
         lon: { type: number, example: -74.1702362 }
         dentroBarrio: { type: boolean, example: true }
@@ -548,7 +672,7 @@ components:
             fuente: { type: string, example: F-01 }
         upz:
           type: object
-          required: [nivel, codigo, nombre, poblacion, fuente]
+          required: [nivel, codigo, nombre, poblacion, quinquenios, fuente]
           properties:
             nivel: { type: string, enum: [upz] }
             codigo: { type: string, example: '82' }
@@ -561,6 +685,18 @@ components:
                 anio: { type: integer, example: 2025 }
                 hombres: { type: integer, example: 66175 }
                 mujeres: { type: integer, example: 66955 }
+            quinquenios:
+              type: array
+              minItems: 18
+              maxItems: 18
+              items:
+                type: object
+                required: [edad, hombres, mujeres, total]
+                properties:
+                  edad: { type: string, example: '0-4' }
+                  hombres: { type: integer, example: 5006 }
+                  mujeres: { type: integer, example: 4900 }
+                  total: { type: integer, example: 9906 }
             fuente: { type: string, example: F-03 }
     Seguridad:
       type: object

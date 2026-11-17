@@ -35,6 +35,17 @@
       "description": "Atributos oficiales del registro LEG00645"
     },
     {
+      "path": "poblacion-upz-082-2025.json",
+      "sha256": "C5A45313031499E9574AC5E1458EE49AEF84989CB909AA8A759209091F5E4B3B",
+      "bytes": 2688,
+      "sourceId": "F-03",
+      "entity": "Secretaría Distrital de Planeación (SDP)",
+      "url": "https://datosabiertos.bogota.gov.co/dataset/0f1fb76a-1595-43d5-9257-0abcc3db908a",
+      "consultedAt": "2026-11-15",
+      "license": "CC BY 4.0",
+      "description": "UPZ 082 Patio Bonito, año 2025, 18 quinquenios por sexo; extraído del ODS 202503 con scripts/extract-poblacion-upz.py"
+    },
+    {
       "path": "colegios-ciudad-granada.geojson",
       "sha256": "3DCFBD4B77E0605EE2D04BCCDD224C04F375896C77E93BE652FA34BB26D9D960",
       "bytes": 25398,

@@ -13,6 +13,7 @@ import { LoginAdmin } from './application/auth/LoginAdmin.js';
 import { RefreshSession } from './application/auth/RefreshSession.js';
 import { PostgresBarrioRepository } from './infrastructure/db/PostgresBarrioRepository.js';
 import { PostgresLugarRepository } from './infrastructure/db/PostgresLugarRepository.js';
+import { PostgresCategoriaRepository } from './infrastructure/db/PostgresCategoriaRepository.js';
 import { PostgresViaRepository } from './infrastructure/db/PostgresViaRepository.js';
 import { PostgresAdminRepository } from './infrastructure/db/PostgresAdminRepository.js';
 import { StaticStatsRepository } from './infrastructure/stats/StaticStatsRepository.js';
@@ -24,6 +25,7 @@ async function main(): Promise<void> {
   const pool = new Pool({ connectionString: env.DATABASE_URL });
   const repository = new PostgresBarrioRepository(pool);
   const lugarRepository = new PostgresLugarRepository(pool);
+  const categoriaRepository = new PostgresCategoriaRepository(pool);
   const viaRepository = new PostgresViaRepository(pool);
   const statsRepository = new StaticStatsRepository();
   const adminRepository = new PostgresAdminRepository(pool);
@@ -45,6 +47,7 @@ async function main(): Promise<void> {
     login: new LoginAdmin(adminRepository, jwt),
     refresh: new RefreshSession(adminRepository, jwt),
     lugares: lugarRepository,
+    categorias: categoriaRepository,
     admin: adminRepository,
     jwtSecret: env.JWT_SECRET,
     jwtRefreshSecret: env.JWT_REFRESH_SECRET,

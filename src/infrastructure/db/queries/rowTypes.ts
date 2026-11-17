@@ -70,6 +70,7 @@ export interface LugarRow {
   direccion: string | null;
   sector: string | null;
   tipo: string | null;
+  codigo: string | null;
   lat: number;
   lon: number;
   dentro_barrio: boolean;

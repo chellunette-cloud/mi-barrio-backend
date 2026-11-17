@@ -21,6 +21,7 @@ export function mapLugar(row: LugarRow): Lugar {
     direccion: row.direccion,
     sector: row.sector,
     tipo: row.tipo,
+    codigo: row.codigo,
     lat: Number(row.lat),
     lon: Number(row.lon),
     dentroBarrio: row.dentro_barrio,
