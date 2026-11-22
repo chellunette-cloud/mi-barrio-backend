@@ -16,7 +16,12 @@ export const LUGARES_SQL = `
   LEFT JOIN fuente f ON f.id = lf.fuente_id
   WHERE l.publicado = TRUE
     AND ($1::text IS NULL OR c.codigo = $1)
-    AND ($2::text IS NULL OR l.nombre ILIKE $2 OR COALESCE(l.direccion, '') ILIKE $2)
+    AND ($4::text IS NULL OR l.tipo = $4)
+    AND (
+      $2::text IS NULL
+      OR translate(lower(l.nombre), 'áéíóúàèìòùâêîôûäëïöüñýãõçÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÄËÏÖÜÑÝÃÕÇ', 'aeiouaeiouaeiouaeiounyaocaeiouaeiouaeiouaeiounyaoc') LIKE translate(lower($2), 'áéíóúàèìòùâêîôûäëïöüñýãõçÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÄËÏÖÜÑÝÃÕÇ', 'aeiouaeiouaeiouaeiounyaocaeiouaeiouaeiouaeiounyaoc')
+      OR translate(lower(COALESCE(l.direccion, '')), 'áéíóúàèìòùâêîôûäëïöüñýãõçÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÄËÏÖÜÑÝÃÕÇ', 'aeiouaeiouaeiouaeiounyaocaeiouaeiouaeiouaeiounyaoc') LIKE translate(lower($2), 'áéíóúàèìòùâêîôûäëïöüñýãõçÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÄËÏÖÜÑÝÃÕÇ', 'aeiouaeiouaeiouaeiounyaocaeiouaeiouaeiouaeiounyaoc')
+    )
   GROUP BY l.id, c.codigo
   ORDER BY l.distancia_m ASC NULLS LAST, l.nombre ASC
   LIMIT $3;

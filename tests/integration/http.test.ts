@@ -83,14 +83,11 @@ describe('HTTP interno', () => {
     expect(response.headers['x-request-id']).toBeTruthy();
   });
 
-  it('devuelve la geometría y el health sin token', async () => {
+  it('devuelve la geometría con token', async () => {
     const geo = await request(app)
       .get('/internal/v1/barrio/geometria')
       .set('X-Service-Token', token);
     expect(geo.status).toBe(200);
     expect(geo.body.srid).toBe(4326);
-    const health = await request(app).get('/internal/v1/health');
-    expect(health.status).toBe(200);
-    expect(health.body.status).toBe('ok');
   });
 });

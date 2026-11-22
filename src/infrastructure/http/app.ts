@@ -41,9 +41,6 @@ export function createApp(deps: AppDependencies): Express {
   app.use(helmet());
   app.use(requestId);
   app.use(express.json({ limit: '8kb' }));
-  app.get('/internal/v1/health', (_req, res) => {
-    res.json({ status: 'ok', service: 'mi-barrio-backend' });
-  });
   app.use('/internal/v1', createInternalRouter(deps));
   app.use(notFound);
   app.use(errorHandler);

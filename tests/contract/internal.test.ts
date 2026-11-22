@@ -76,6 +76,8 @@ describe('Contrato interno', () => {
     expect(contract).toContain('/internal/v1/barrio:');
     expect(contract).toContain('/internal/v1/barrio/geometria:');
     expect(contract).toContain('ServiceToken');
+    expect(contract).not.toContain('security: []');
+    expect(contract).toMatch(/- name: q\s+in: query\s+schema: \{ type: string, maxLength: 60 \}/);
   });
 
   it('la respuesta real conserva los campos canónicos de Barrio', async () => {

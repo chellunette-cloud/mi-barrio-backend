@@ -19,7 +19,8 @@ export class PostgresLugarRepository implements LugarRepository {
     const result = await this.pool.query<LugarRow>(LUGARES_SQL, [
       filtro.categoria ?? null,
       busqueda,
-      limite
+      limite,
+      filtro.tipo ?? null
     ]);
     return result.rows.map(mapLugar);
   }

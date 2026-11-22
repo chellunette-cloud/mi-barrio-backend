@@ -55,6 +55,7 @@ export interface CategoriaRepository {
 export interface LugarFiltro {
   categoria?: string;
   q?: string;
+  tipo?: string;
   limite?: number;
 }
 export interface LugarRepository {

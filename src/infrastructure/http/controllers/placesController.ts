@@ -13,7 +13,8 @@ export interface PlacesControllerDependencies {
 
 const filtroSchema = z.object({
   categoria: z.string().trim().optional(),
-  q: z.string().trim().optional(),
+  q: z.string().trim().max(60).optional(),
+  tipo: z.string().trim().max(60).optional(),
   limite: z.coerce.number().int().min(1).max(1000).optional()
 });
 

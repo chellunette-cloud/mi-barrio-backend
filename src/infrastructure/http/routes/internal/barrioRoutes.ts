@@ -28,6 +28,9 @@ export function createInternalRouter(deps: InternalRouterDependencies): Router {
   const router = Router();
   const controller = createBarrioController(deps);
   router.use(requireServiceToken(deps.serviceToken));
+  router.get('/health', (_req, res) => {
+    res.json({ status: 'ok', service: 'mi-barrio-backend' });
+  });
   router.get('/barrio', controller.barrio);
   router.get('/barrio/geometria', controller.geometria);
   router.use(createPlacesRouter(deps));

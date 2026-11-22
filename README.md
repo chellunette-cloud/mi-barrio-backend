@@ -43,7 +43,7 @@ El ETL es transaccional y valida, antes de confirmar:
 
 | Método | Ruta | Protección |
 |---|---|---|
-| `GET` | `/internal/v1/health` | Sin token |
+| `GET` | `/internal/v1/health` | `X-Service-Token` |
 | `GET` | `/internal/v1/barrio` | `X-Service-Token` |
 | `GET` | `/internal/v1/barrio/geometria` | `X-Service-Token` |
 
